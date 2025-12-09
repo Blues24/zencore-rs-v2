@@ -1,0 +1,7 @@
+[package]
+name = "zencore-rs-v2"
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+members = ["zencore-cli","zencore-lib", "zencore-tui"]

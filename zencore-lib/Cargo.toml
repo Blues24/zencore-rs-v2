@@ -1,0 +1,16 @@
+[package]
+name = "zencore-lib"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ahash = "0.8.12"
+camino = "1.2.1"
+dashmap = "6.1.0"
+ignore = "0.4.25"
+libloading = "0.9.0"
+mdbook = "0.5.1"
+notify = "8.2.0"
+rayon = "1.11.0"
+serde = "1.0.228"
+tokio = "1.48.0"
