@@ -4,6 +4,5 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-colored = "3.0.0"
-emoji = "0.2.1"
+emojis = "0.8.0"
 figlet-rs = "0.1.5"

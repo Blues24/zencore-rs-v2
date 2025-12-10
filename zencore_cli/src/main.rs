@@ -1,5 +1,5 @@
-use zencore_utils;
+use zencore_utils::banner::display_banner;
 
 fn main() {
-    displayBanner();
+    display_banner();
 }
