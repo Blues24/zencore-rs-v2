@@ -4,7 +4,7 @@
 > built with a strict, scalable multi-crate architecture.
 
 <p align="center">
-  <img src="https://github.com/your/banner.png" width="500"/>
+  <img src="./assets/icon.png" width="500"/>
 </p>
 
 <p align="center">
@@ -252,6 +252,5 @@ Zencore ingin menjadi contoh pendekatan *clean architecture* dalam proyek Rust m
 ---
 
 <p align="center"><b>Built with Rust. Designed for longevity.</b></p>
-```
 
 ---
