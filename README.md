@@ -14,7 +14,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/status-alpha-orange" />
   <img src="https://img.shields.io/badge/language-rust-informational" />
-  <img src="https://img.shields.io/badge/license-MIT-blue" />
+  <img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg" />
 </p>
 
 ---
