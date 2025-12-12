@@ -1,12 +1,5 @@
 [workspace]
-members = ["zencore-archive","zencore-cli", "zencore-crypto", "zencore-themes", "zencore-tui", "zencore-utils"]
+members = ["zencore_archive","zencore_cli", "zencore_crypto", "zencore_themes", "zencore_tui", "zencore_utils"]
 resolver = "3" 
-
-[workspace.dependencies]
-anyhow = "1"
-tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
-serde = { version = "1", features = ["derive"] }
-tracing = "0.1"
-tracing-subscriber = { version = "0.3", features = ["fmt", "registry"] }
 
 
