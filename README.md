@@ -59,13 +59,13 @@ Setiap crate berdiri sendiri, bebas dari god-module antipattern.
 | Fitur | Status | Deskripsi |
 |-------|--------|-----------|
 | Archiving | 🟡 In Progress | Packing/unpacking + compression support |
-| Encryption | 🟢 Stable | Encrypt/decrypt file & archive |
+| Encryption | 🟡 In Progress | Encrypt/decrypt file & archive |
 | Hashing | 🟡 Planned | SHA-256 / BLAKE3 untuk verifikasi |
 | Theme Engine | 🟡 In Progress | Scriptable theme system |
-| Config System | 🟢 Stable | Auto-generate config + runtime overrides |
+| Config System | 🟡 In Progress | Auto-generate config + runtime overrides |
 | CLI | 🟡 In Progress | Command-based workflow |
 | TUI | 🟡 In Progress | Navigasi interaktif |
-| Utils | 🟢 Stable | Logger, path utils, fuzzer, state, banner |
+| Utils | 🟡 In Progress | Logger, path utils, fuzzer, state, banner |
 
 ---
 
