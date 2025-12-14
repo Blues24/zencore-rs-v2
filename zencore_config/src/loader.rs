@@ -5,6 +5,7 @@ use crate::{
     config::Config, 
     error::ErrorConf, 
     path::config_file_path,
+    validator::validate_config,
 };
 
 pub fn autostart_and_load() -> Result<Config, ErrorConf> {
@@ -12,12 +13,16 @@ pub fn autostart_and_load() -> Result<Config, ErrorConf> {
 
     if !path.exists() {
         create_default(&path)?;
+        let conf_default = Config::default();
+        
+        validate_config(&conf_default)?;
         return Ok(Config::default());
     }
 
     let raw = fs::read_to_string(&path)?;
     let conf: Config = toml::from_str(&raw)?;
-
+    
+    validate_config(&conf)?;
     Ok(conf)
 }
 
