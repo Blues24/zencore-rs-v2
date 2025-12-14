@@ -1,5 +1,5 @@
 [workspace]
-members = ["zencore_archive","zencore_cli", "zencore_crypto", "zencore_themes", "zencore_tui", "zencore_utils"]
+members = ["zencore_archive","zencore_cli", "zencore_config", "zencore_crypto", "zencore_themes", "zencore_tui", "zencore_utils"]
 resolver = "3" 
 
 
