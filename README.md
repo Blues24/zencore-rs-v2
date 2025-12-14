@@ -39,13 +39,14 @@ Zencore menggunakan struktur workspace Rust yang terpisah ketat per domain.
 ```
 
 zencore/
-├─ zencore-core/        # High-level orchestrator; API terpadu untuk CLI/TUI
-├─ zencore-archive/     # Packing, unpacking, tar.gz, tar.zst, detection
-├─ zencore-crypto/      # Encryption, decryption, hashing
-├─ zencore-theme/       # Theme engine (scriptable)
-├─ zencore-utils/       # Logging, path tools, state, config, banner utils
-├─ zencore-cli/         # Command-line interface
-└─ zencore-tui/         # Terminal UI (ratatui/crossterm)
+├─ zencore_core/        # High-level orchestrator; API terpadu untuk CLI/TUI
+├─ zencore_archive/     # Packing, unpacking, tar.gz, tar.zst, detection
+├─ zencore_crypto/      # Encryption, decryption, hashing
+├─ zencore_config
+├─ zencore_theme/       # Theme engine (scriptable)
+├─ zencore_utils/       # Logging, path tools, state, config, banner utils
+├─ zencore_cli/         # Command-line interface
+└─ zencore_tui/         # Terminal UI (ratatui/crossterm)
 
 ````
 
