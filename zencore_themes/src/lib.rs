@@ -1,14 +1,17 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+//! Zencore theme engine (common layer)
+//!
+//! This crate provides renderer-agnostic theme primitives
+//! and loading/resolution logic for CLI and TUI frontends.
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+mod common;
+mod error;
+mod loader;
+mod resolver;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use common::{
+    ColorToken, Colors, CommonThemes, Emphasis, Symbols, TextIntensity, TextStyles, TextWeight,
+};
+
+pub use error::ThemeError;
+pub use loader::load_common_theme;
+pub use resolver::ThemeResolver;

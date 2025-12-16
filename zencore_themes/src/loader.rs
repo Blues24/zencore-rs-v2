@@ -1,7 +1,7 @@
 use serde::Deserialize;
 
-#[derive(Debug, Deserialize)
-struct RawCommonTheme {
+#[derive(Debug, Deserialize)]
+struct RawCommonThemes {
     colors: RawColors,
     symbols: RawSymbols,
 }
@@ -37,28 +37,23 @@ fn parse_color(colorVal: &str) -> Result<ColorToken, ThemeError> {
         "error" => Ok(ColorToken::Error),
         "muted" => Ok(ColorToken::Muted),
         _ => Err(ThemeError::InvalidValue(format!(
-            "unknown color token: {value}"
+            "unknown color token: {colorVal}"
         ))),
     }
 }
 
-use crate::common::{CommonTheme, Colors, Symbols, Emphasis};
+use crate::common::{Colors, CommonThemes, Emphasis, Symbols};
 
-impl RawCommonTheme {
-    fn into_common_theme(self) -> Result<CommonTheme, ThemeError> {
-        Ok(CommonTheme {
+impl RawCommonThemes {
+    fn into_common_theme(self) -> Result<CommonThemes, ThemeError> {
+        Ok(CommonThemes {
             colors: Colors {
                 primary: parse_color(&self.colors.primary)?,
                 secondary: parse_color(&self.colors.secondary)?,
                 success: parse_color(&self.colors.success)?,
                 warning: parse_color(&self.colors.warning)?,
                 error: parse_color(&self.colors.error)?,
-                muted: parse_color(
-                    self.colors
-                        .muted
-                        .as_deref()
-                        .unwrap_or("muted"),
-                )?,
+                muted: parse_color(self.colors.muted.as_deref().unwrap_or("muted"))?,
             },
             symbols: Symbols {
                 info: self.symbols.info,
@@ -72,15 +67,14 @@ impl RawCommonTheme {
     }
 }
 
-use std::fs;
 use camino::Utf8PathBuf;
+use std::fs;
 
-pub fn load_common_theme(path: &Utf8PathBuf) -> Result<CommonTheme, ThemeError> {
-    let content = fs::read_to_string(path)
-        .map_err(|e| ThemeError::Io(path.clone(), e))?;
+pub fn load_common_theme(path: &Utf8PathBuf) -> Result<CommonThemes, ThemeError> {
+    let content = fs::read_to_string(path).map_err(|e| ThemeError::Io(path.clone(), e))?;
 
-    let raw: RawCommonTheme = toml::from_str(&content)
-        .map_err(|e| ThemeError::Parse(path.clone(), e))?;
+    let raw: RawCommonThemes =
+        toml::from_str(&content).map_err(|e| ThemeError::Parse(path.clone(), e.to_string()))?;
 
     raw.into_common_theme()
 }

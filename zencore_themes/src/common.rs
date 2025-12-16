@@ -30,9 +30,9 @@ pub struct Emphasis {
     pub subtle: TextStyles,
 }
 #[derive(Debug, Clone)]
-struct TextStyles{
+pub struct TextStyles {
     pub weight: TextWeight,
-    pub intensity: TextIntensity,   
+    pub intensity: TextIntensity,
 }
 
 #[derive(Debug, Clone)]
@@ -63,14 +63,9 @@ impl Default for Emphasis {
                 weight: TextWeight::Strong,
                 intensity: TextIntensity::Normal,
             },
-            subtle: TextStyles{
+            subtle: TextStyles {
                 weight: TextWeight::Normal,
                 intensity: TextIntensity::Subtle,
-            },
-            
-            normal: TextStyles {
-                weight: TextWeight::Normal,
-                intensity: TextIntensity::Normal,
             },
         }
     }
