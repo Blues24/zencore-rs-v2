@@ -78,3 +78,12 @@ pub fn load_common_theme(path: &Utf8PathBuf) -> Result<CommonThemes, ThemeError>
 
     raw.into_common_theme()
 }
+
+pub fn load_default_common_theme() -> Result<CommonThemes, ThemeError> {
+    let content = include_str!("../example-themes/common.conf");
+
+    let raw: RawCommonThemes = toml::from_str(content)
+        .map_err(|e| ThemeError::Parse("embedded default theme".into(), e.to_string()))?;
+
+    raw.into_common_theme()
+}
