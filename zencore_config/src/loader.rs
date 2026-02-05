@@ -1,23 +1,23 @@
 use std::fs;
 use std::io::Write;
 
-use crate::{
-    config::Config, 
-    error::ErrorConf, 
-    path::config_file_path,
-};
+use crate::{config::Config, error::ErrorConf, path::config_file_path, validator::validate_config};
 
 pub fn autostart_and_load() -> Result<Config, ErrorConf> {
     let path = config_file_path().ok_or(ErrorConf::PathResolution)?;
 
     if !path.exists() {
         create_default(&path)?;
+        let conf_default = Config::default();
+
+        validate_config(&conf_default)?;
         return Ok(Config::default());
     }
 
     let raw = fs::read_to_string(&path)?;
     let conf: Config = toml::from_str(&raw)?;
 
+    validate_config(&conf)?;
     Ok(conf)
 }
 
@@ -34,3 +34,5 @@ pub fn create_default(path: &camino::Utf8PathBuf) -> Result<(), ErrorConf> {
 
     Ok(())
 }
+
+

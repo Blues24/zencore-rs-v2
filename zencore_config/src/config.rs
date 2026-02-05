@@ -1,5 +1,6 @@
 use camino::Utf8PathBuf;
 use serde::{Deserialize, Serialize};
+use crate::override::OverrideConf;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Config {
@@ -44,5 +45,23 @@ impl Default for Config {
                 refresh_rate_ms: 100,
             },
         }
+    }
+}
+
+impl Config {
+    pub fn apply_override(mut self, ovr: OverrideConf) -> Self {
+        if let Some(ws) = ovr.workspace{
+            self.paths.workspace = ws;
+        }
+
+        if let Some(theme) = ovr.theme_file {
+            self.progress.theme_file = theme;
+        }
+
+        if let Some(ms) = ovr.refresh_rate_ms {
+            self.progress.refresh_rate_ms = ms;
+        }
+
+        self 
     }
 }

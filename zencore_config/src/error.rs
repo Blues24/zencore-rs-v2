@@ -10,4 +10,7 @@ pub enum ErrorConf {
 
     #[error("Cannot parse config file")]
     Parse(#[from] toml::de::Error),
+
+    #[error("Invalid config value at: {0}")]
+    InvalidValue(String),
 }
