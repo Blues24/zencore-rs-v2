@@ -1,4 +1,4 @@
-use std::path::PathBuf
+use std::path::PathBuf;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ArchiveFormat {
@@ -15,7 +15,7 @@ impl ArchiveFormat {
             Self::TarZst => "tar.zst",
             Self::Zip => "zip",
             // Add more format in this line 
-            _ => None 
+             
         }
     }
     

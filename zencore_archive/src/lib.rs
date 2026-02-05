@@ -53,19 +53,19 @@ pub mod error;
 pub mod progress;
 
 // Internal modules (not part of public API yet - Day 2+)
-// mod walker;
-// mod filter;
+mod filter;
+mod walker;
 // mod sorter;
 // mod metadata;
 // mod formats;
 
 // Re-exports for convenience
 pub use config::{
-    ArchiveConfig, ArchiveConfigBuilder, ArchiveFormat, CompressionLevel,
-    ErrorStrategy, SortStrategy,
+    ArchiveConfig, ArchiveConfigBuilder, ArchiveFormat, CompressionLevel, ErrorStrategy,
+    SortStrategy,
 };
 pub use error::{ArchiveError, ErrorCollector, Result};
-pub use progress::{no_progress, BoxedProgress, NoOpProgress, ProgressCallback, ProgressEvent};
+pub use progress::{BoxedProgress, NoOpProgress, ProgressCallback, ProgressEvent, no_progress};
 
 /// Create an archive from a directory
 ///
@@ -101,10 +101,7 @@ pub use progress::{no_progress, BoxedProgress, NoOpProgress, ProgressCallback, P
 /// create_archive(&config, no_progress())?;
 /// # Ok::<(), ArchiveError>(())
 /// ```
-pub fn create_archive(
-    _config: &ArchiveConfig,
-    mut _progress: BoxedProgress,
-) -> Result<()> {
+pub fn create_archive(_config: &ArchiveConfig, mut _progress: BoxedProgress) -> Result<()> {
     // TODO: Implement in Day 2-4
     // This is a placeholder for Day 1
     todo!("Implementation coming in Day 2-4")

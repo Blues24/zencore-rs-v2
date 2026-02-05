@@ -2,5 +2,43 @@
 name = "zencore_archive"
 version = "0.1.0"
 edition = "2024"
+authors = [ "Luckman Afandi <lukmanaffandi900@gmail.com>" ]
+description = "Core archive library for Zencore - directory archival with tar.gz, tar.zst, and zip support"
+license = ""
+repository = "https://github.com/Blues24/Zencore-rs-v2.git"
+keywords = [ "archive", "tar", "zip", "compression" ]
+categories = ["compression", "filesystem" ]
 
 [dependencies]
+
+walkdir = "2"
+ignore = "0.4"
+path-clean = "1.0"
+
+# compression deps
+tar = "0.4"
+# optional deps
+flate2 = { version = "1.0", optional = true }
+zstd = { version = "0.13", optional = true }
+zip = { version = "2", optional = true }
+
+# error handling 
+thiserror = "2"
+
+#glob pattern
+glob = "0.3"
+
+[dev-dependencies]
+tempfile = "3"
+
+[features]
+default = ["tar-gz"]
+tar-gz = ["flate2"]
+tar-zst = ["zstd"]
+zip-support = ["zip"]
+all-formats = ["tar-gz", "tar-zst", "zip-support"]
+
+[lib]
+name = "zencore_archive"
+path = "src/lib.rs" 
+
